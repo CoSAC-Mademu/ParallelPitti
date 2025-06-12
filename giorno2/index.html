@@ -1,1 +1,189 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Il Volto del Mondo • Giorno 2</title>
+  <link rel="stylesheet" href="../style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --dark-bg: #121212;
+      --text: #E8E6E3;
+      --accent: #C19A6B;
+      --hover: #D4B483;
+      --divider: rgba(193, 154, 107, 0.3);
+    }
+    
+    body {
+      background-color: var(--dark-bg);
+      color: var(--text);
+      font-family: 'Cormorant Garamond', serif;
+      line-height: 1.6;
+      padding: 0;
+      margin: 0;
+      min-height: 100vh;
+    }
+    
+    .container {
+      width: 85%;
+      max-width: 650px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+      box-sizing: border-box;
+    }
+    
+    h1 {
+      font-weight: 600;
+      font-size: clamp(2rem, 6vw, 2.8rem);
+      letter-spacing: 1px;
+      margin-bottom: 1.2rem;
+      text-align: center;
+      color: var(--accent);
+    }
+    
+    .giorno {
+      text-align: center;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 300;
+      font-size: 0.9rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 2rem;
+    }
+    
+    .divider {
+      border: 0;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--divider), transparent);
+      margin: clamp(1.5rem, 5vw, 2.5rem) 0;
+    }
+    
+    .frase {
+      font-size: clamp(1.1rem, 4vw, 1.4rem);
+      text-align: center;
+      font-style: italic;
+      margin-bottom: clamp(2rem, 6vw, 3.5rem);
+      line-height: 1.8;
+    }
+    
+    .quest {
+      background-color: rgba(193, 154, 107, 0.08);
+      border-left: 3px solid var(--accent);
+      padding: 1.2rem;
+      margin: clamp(1.5rem, 5vw, 2.5rem) 0;
+      font-size: clamp(1rem, 4vw, 1.1rem);
+    }
+    
+    .quest strong {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 400;
+      letter-spacing: 1.5px;
+      display: block;
+      margin-bottom: 0.8rem;
+      color: var(--accent);
+      font-size: 0.85rem;
+    }
+    
+    .nota {
+      font-size: 0.85rem;
+      text-align: right;
+      padding-top: 1rem;
+      border-top: 1px dashed var(--divider);
+      margin-top: 2rem;
+    }
+    
+    .playlist-block {
+      margin-top: 3rem;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 300;
+      font-size: 0.85rem;
+    }
+    
+    .playlist-block em {
+      font-style: normal;
+      font-weight: 400;
+      display: block;
+      margin-bottom: 0.5rem;
+      color: var(--accent);
+    }
+    
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px dotted var(--accent);
+      transition: all 0.3s ease;
+      display: inline-block;
+    }
+    
+    a:hover {
+      color: var(--hover);
+      border-bottom: 1px solid var(--hover);
+    }
 
+    /* Scorpio touch */
+    .scorpio-symbol {
+      text-align: center;
+      margin: 1.5rem 0;
+      opacity: 0.6;
+      font-size: 0.7rem;
+    }
+
+    /* Animazione sguardo */
+    @keyframes blink {
+      0%, 100% { opacity: 0.8; }
+      50% { opacity: 0.2; }
+    }
+    .eye-hint {
+      display: inline-block;
+      animation: blink 6s infinite;
+      cursor: help;
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <article class="block">
+      <header>
+        <h1>Il Volto del Mondo</h1>
+        <p class="giorno">Giorno secondo</p>
+      </header>
+
+      <hr class="divider"/>
+
+      <p class="frase">
+        Fotografa un volto che non vuole essere <span class="eye-hint" title="(ma che tu vedrai)">visto</span>.<br>
+        O che nessuno noterà.
+      </p>
+
+      <div class="quest">
+        <strong>MICRO-QUEST VISIVA</strong>
+        Cattura un'espressione nascosta nella folla.<br>
+        Un volto che si finge sfondo <span class="eye-hint" title="come uno Scorpione in agguato">...</span>
+      </div>
+
+      <footer>
+        <p class="nota">
+          «L’esotico è spesso un desiderio travestito.<br>
+          Ma anche il desiderio è un territorio da tradire.» — Trinh T. Minh-ha
+        </p>
+
+        <div class="playlist-block">
+          <em>Colonna sonora suggerita</em>
+          <a href="#" target="_blank">🎧 [in arrivo]</a>
+        </div>
+      </footer>
+    </article>
+  </main>
+
+  <script>
+    // Easter egg per lo Scorpione
+    document.querySelectorAll('.eye-hint').forEach(el => {
+      el.addEventListener('click', () => {
+        alert("Lo Scorpione vede ciò che gli altri non vedono...");
+      });
+    });
+  </script>
+</body>
+</html>
