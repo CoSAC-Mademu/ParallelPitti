@@ -8,86 +8,105 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
   <style>
     :root {
-      --cream: #F8F5F0;
-      --dark: #1A1A1A;
-      --accent: #8B5A2B;
+      --dark-bg: #121212;
+      --text: #E8E6E3;
+      --accent: #C19A6B;
+      --hover: #D4B483;
+      --divider: rgba(193, 154, 107, 0.3);
     }
     
     body {
-      background-color: var(--cream);
-      color: var(--dark);
+      background-color: var(--dark-bg);
+      color: var(--text);
       font-family: 'Cormorant Garamond', serif;
       line-height: 1.6;
       padding: 0;
       margin: 0;
+      min-height: 100vh;
     }
     
     .container {
+      width: 85%;
       max-width: 650px;
-      margin: 5vh auto;
-      padding: 2rem;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+      box-sizing: border-box;
     }
     
     h1 {
       font-weight: 600;
-      font-size: 2.5rem;
+      font-size: clamp(2rem, 6vw, 2.8rem);
       letter-spacing: 1px;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.2rem;
       text-align: center;
       color: var(--accent);
+    }
+    
+    .giorno {
+      text-align: center;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 300;
+      font-size: 0.9rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 2rem;
     }
     
     .divider {
       border: 0;
       height: 1px;
-      background: linear-gradient(to right, transparent, var(--accent), transparent);
-      margin: 2rem 0;
+      background: linear-gradient(to right, transparent, var(--divider), transparent);
+      margin: clamp(1.5rem, 5vw, 2.5rem) 0;
     }
     
     .frase {
-      font-size: 1.3rem;
+      font-size: clamp(1.1rem, 4vw, 1.4rem);
       text-align: center;
       font-style: italic;
-      margin-bottom: 3rem;
+      margin-bottom: clamp(2rem, 6vw, 3.5rem);
       line-height: 1.8;
     }
     
     .quest {
-      background-color: rgba(139, 90, 43, 0.05);
+      background-color: rgba(193, 154, 107, 0.08);
       border-left: 3px solid var(--accent);
-      padding: 1.5rem;
-      margin: 2rem 0;
-      font-size: 1.1rem;
+      padding: 1.2rem;
+      margin: clamp(1.5rem, 5vw, 2.5rem) 0;
+      font-size: clamp(1rem, 4vw, 1.1rem);
     }
     
     .quest strong {
       font-family: 'Montserrat', sans-serif;
       font-weight: 400;
-      letter-spacing: 1px;
+      letter-spacing: 1.5px;
       display: block;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.8rem;
       color: var(--accent);
+      font-size: 0.85rem;
     }
     
     .nota {
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       text-align: right;
       padding-top: 1rem;
-      border-top: 1px dashed rgba(139, 90, 43, 0.3);
+      border-top: 1px dashed var(--divider);
+      margin-top: 2rem;
     }
     
     .playlist-block {
       margin-top: 3rem;
       font-family: 'Montserrat', sans-serif;
       font-weight: 300;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
     }
     
     .playlist-block em {
       font-style: normal;
       font-weight: 400;
       display: block;
-      margin-bottom: 0.3rem;
+      margin-bottom: 0.5rem;
+      color: var(--accent);
     }
     
     a {
@@ -95,10 +114,20 @@
       text-decoration: none;
       border-bottom: 1px dotted var(--accent);
       transition: all 0.3s ease;
+      display: inline-block;
     }
     
     a:hover {
-      border-bottom: 1px solid var(--accent);
+      color: var(--hover);
+      border-bottom: 1px solid var(--hover);
+    }
+
+    /* Scorpio touch */
+    .scorpio-symbol {
+      text-align: center;
+      margin: 1.5rem 0;
+      opacity: 0.6;
+      font-size: 0.7rem;
     }
   </style>
 </head>
