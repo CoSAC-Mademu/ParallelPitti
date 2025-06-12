@@ -3,40 +3,138 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>L’Incrinatura</title>
+  <title>L'Incrinatura • Giorno 1</title>
   <link rel="stylesheet" href="../style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #F8F5F0;
+      --dark: #1A1A1A;
+      --accent: #8B5A2B;
+    }
+    
+    body {
+      background-color: var(--cream);
+      color: var(--dark);
+      font-family: 'Cormorant Garamond', serif;
+      line-height: 1.6;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .container {
+      max-width: 650px;
+      margin: 5vh auto;
+      padding: 2rem;
+    }
+    
+    h1 {
+      font-weight: 600;
+      font-size: 2.5rem;
+      letter-spacing: 1px;
+      margin-bottom: 1.5rem;
+      text-align: center;
+      color: var(--accent);
+    }
+    
+    .divider {
+      border: 0;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--accent), transparent);
+      margin: 2rem 0;
+    }
+    
+    .frase {
+      font-size: 1.3rem;
+      text-align: center;
+      font-style: italic;
+      margin-bottom: 3rem;
+      line-height: 1.8;
+    }
+    
+    .quest {
+      background-color: rgba(139, 90, 43, 0.05);
+      border-left: 3px solid var(--accent);
+      padding: 1.5rem;
+      margin: 2rem 0;
+      font-size: 1.1rem;
+    }
+    
+    .quest strong {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 400;
+      letter-spacing: 1px;
+      display: block;
+      margin-bottom: 0.5rem;
+      color: var(--accent);
+    }
+    
+    .nota {
+      font-size: 0.9rem;
+      text-align: right;
+      padding-top: 1rem;
+      border-top: 1px dashed rgba(139, 90, 43, 0.3);
+    }
+    
+    .playlist-block {
+      margin-top: 3rem;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 300;
+      font-size: 0.9rem;
+    }
+    
+    .playlist-block em {
+      font-style: normal;
+      font-weight: 400;
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+    
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px dotted var(--accent);
+      transition: all 0.3s ease;
+    }
+    
+    a:hover {
+      border-bottom: 1px solid var(--accent);
+    }
+  </style>
 </head>
 <body>
   <main class="container">
-    <div class="block">
-      <h1>L’Incrinatura</h1>
+    <article class="block">
+      <header>
+        <h1>L'Incrinatura</h1>
+        <p class="giorno">Giorno primo</p>
+      </header>
 
       <hr class="divider"/>
 
       <p class="frase">
-        Cerca un dettaglio che il Pitti nasconde.  
+        Cerca un dettaglio che il Pitti nasconde.<br>
         Non che ignora: che <em>nasconde</em>.
       </p>
 
-      <p class="quest">
-        <strong>Micro-quest fotografica</strong><br>
-        Osserva (o scatta) qualcosa che non dovrebbe esserci.  
+      <div class="quest">
+        <strong>MICRO-QUEST FOTOGRAFICA</strong>
+        Osserva (o scatta) qualcosa che non dovrebbe esserci.<br>
         Un errore elegante, una crepa nella perfezione.
-      </p>
-
-      <p class="nota">
-        “In ogni sistema chiuso, c’è una fessura.  
-        Da lì passa il reale.” — Lacan
-      </p>
-
-      <div class="playlist-block">
-        <p>
-          🎧 <em>Colonna sonora suggerita:</em><br>
-          <a href="#" target="_blank">[link alla playlist in arrivo]</a>
-        </p>
       </div>
-    </div>
+
+      <footer>
+        <p class="nota">
+          «In ogni sistema chiuso, c'è una fessura.<br>
+          Da lì passa il reale.» — Lacan
+        </p>
+
+        <div class="playlist-block">
+          <em>Colonna sonora suggerita</em>
+          <a href="#" target="_blank">🎧 [link alla playlist in arrivo]</a>
+        </div>
+      </footer>
+    </article>
   </main>
 </body>
 </html>
