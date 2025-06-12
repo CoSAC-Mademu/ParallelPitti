@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>La Fuga Programmata • Giorno 4</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --dark-bg: #0a0a0a;
+      --text: #EAE0D5;
+      --accent: #B38B6D;
+      --hover: #D9B99B;
+      --divider: rgba(179, 139, 109, 0.3);
+      --selection: rgba(179, 139, 109, 0.2);
+    }
+
+    ::selection {
+      background: var(--selection);
+    }
+
+    body {
+      background-color: var(--dark-bg);
+      color: var(--text);
+      font-family: 'Cormorant Garamond', serif;
+      line-height: 1.7;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      background-image: 
+        radial-gradient(circle at 20% 30%, rgba(179, 139, 109, 0.03) 0%, transparent 25%),
+        radial-gradient(circle at 80% 70%, rgba(179, 139, 109, 0.03) 0%, transparent 25%);
+    }
+
+    main {
+      width: 88%;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 2.5rem 1rem;
+      box-sizing: border-box;
+    }
+
+    h1 {
+      color: var(--accent);
+      margin: 0 0 0.3rem;
+      font-size: clamp(2rem, 6vw, 2.5rem);
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-shadow: 0 0 10px rgba(179, 139, 109, 0.1);
+    }
+
+    .giorno {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 3px;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 2.5rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .giorno:after {
+      content: "";
+      display: block;
+      width: 40%;
+      height: 1px;
+      background: var(--divider);
+      margin: 1.2rem auto 0;
+    }
+
+    .suggestion {
+      margin: 1.8rem 0;
+      background: rgba(179, 139, 109, 0.07);
+      border-left: 2px solid var(--accent);
+      padding: 1.3rem;
+      font-size: clamp(1rem, 4vw, 1.1rem);
+      line-height: 1.8;
+      position: relative;
+      text-align: left;
+      transition: all 0.4s ease;
+      cursor: pointer;
+    }
+
+    .suggestion:hover {
+      background: rgba(179, 139, 109, 0.12);
+    }
+
+    .suggestion:before {
+      content: "»";
+      position: absolute;
+      left: 0.5rem;
+      color: var(--accent);
+      opacity: 0.6;
+    }
+
+    button {
+      margin-top: 3rem;
+      padding: 0.8rem 2rem;
+      background: transparent;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 400;
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    button:hover {
+      background: rgba(179, 139, 109, 0.1);
+      letter-spacing: 3px;
+    }
+
+    button:after {
+      content: "♏";
+      position: absolute;
+      right: -15px;
+      opacity: 0;
+      transition: all 0.3s ease;
+    }
+
+    button:hover:after {
+      right: 15px;
+      opacity: 0.5;
+    }
+
+    .nota {
+      font-size: 0.75rem;
+      margin-top: 4rem;
+      color: rgba(234, 224, 213, 0.4);
+      font-family: 'Montserrat', sans-serif;
+      letter-spacing: 0.5px;
+      position: relative;
+    }
+
+    .nota:before {
+      content: "";
+      display: block;
+      width: 30%;
+      height: 1px;
+      background: var(--divider);
+      margin: 0 auto 1.2rem;
+    }
+
+    /* Animazioni */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .fade-in {
+      animation: fadeIn 0.6s ease-out forwards;
+    }
+
+    /* Effetto selezione suggerimento */
+    .selected {
+      background: rgba(179, 139, 109, 0.15) !important;
+      border-left: 2px solid var(--hover);
+    }
+
+    .selected:before {
+      opacity: 1;
+    }
+
+    /* Scorpio touch mobile */
+    @media (max-width: 600px) {
+      .suggestion {
+        padding: 1.1rem 1rem 1.1rem 1.5rem;
+      }
+      button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>La Fuga Programmata</h1>
+    <div class="giorno">Giorno quarto</div>
+
+    <div class="suggestion fade-in" id="sugg1"></div>
+    <div class="suggestion fade-in" id="sugg2"></div>
+    <div class="suggestion fade-in" id="sugg3"></div>
+
+    <button onclick="generate()">RIGENERA</button>
+
+    <div class="nota">«Solo chi si perde può trovare qualcosa di nuovo.»</div>
+  </main>
+
+  <script>
+    const idee = [
+      "Segui la musica che senti in lontananza. Anche se è solo nella tua testa",
+      "Fermati al primo odore che ti sorprende. Prenditi una pausa proprio lì, dove l'aria è diversa",
+      "Fai tre passi indietro da dove stai andando. Poi chiudi gli occhi e cambia rotta",
+      "Osserva le scarpe delle persone per dieci minuti. Cosa raccontano di chi le indossa?",
+      "Cerca un mosaico, una grata, una forma ripetuta. Fotografala come prova del tuo passaggio segreto",
+      "Guarda in alto per un minuto. Conta le antenne, i fili, i segni che nessuno nota",
+      "Segui la persona con il cappello più strano che vedi. Solo per un po', senza farti notare",
+      "Trova una panchina isolata e scrivi una frase su un foglietto. Lascialo lì per qualcun altro",
+      "Individua un dettaglio architettonico che sembra fuori posto. Perché è lì?",
+      "Scegli un colore a caso e seguilo con lo sguardo per tutto il percorso"
+    ];
+
+    function generate() {
+      const shuffled = [...idee].sort(() => 0.5 - Math.random());
+      const suggestions = document.querySelectorAll('.suggestion');
+      
+      suggestions.forEach((el, index) => {
+        el.classList.remove('fade-in');
+        void el.offsetWidth; // Trigger reflow
+        el.classList.add('fade-in');
+        el.innerText = shuffled[index];
+        el.classList.remove('selected');
+      });
+    }
+
+    // Selezione suggerimento
+    document.querySelectorAll('.suggestion').forEach(el => {
+      el.addEventListener('click', () => {
+        document.querySelectorAll('.suggestion').forEach(s => s.classList.remove('selected'));
+        el.classList.add('selected');
+      });
+    });
+
+   
+
+    // Inizializzazione
+    generate();
+  </script>
+</body>
+</html>
