@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Il Diario Inaudito • Giorno 3</title>
+  <link rel="stylesheet" href="../style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --dark-bg: #0a0a0a;
+      --text: #EAE0D5;
+      --accent: #B38B6D;
+      --hover: #D9B99B;
+      --divider: rgba(179, 139, 109, 0.3);
+      --ink-effect: rgba(179, 139, 109, 0.15);
+    }
+
+    body {
+      background-color: var(--dark-bg);
+      color: var(--text);
+      font-family: 'Cormorant Garamond', serif;
+      line-height: 1.6;
+      padding: 0;
+      margin: 0;
+      min-height: 100vh;
+      background-image: radial-gradient(circle at 50% 50%, rgba(179, 139, 109, 0.03) 0%, transparent 100%);
+    }
+
+    .container {
+      width: 88%;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+      box-sizing: border-box;
+    }
+
+    h1 {
+      font-weight: 600;
+      font-size: clamp(2rem, 6vw, 2.5rem);
+      letter-spacing: 0.5px;
+      margin-bottom: 1rem;
+      text-align: center;
+      color: var(--accent);
+      text-shadow: 0 0 8px rgba(179, 139, 109, 0.1);
+    }
+
+    .giorno {
+      text-align: center;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 300;
+      font-size: 0.8rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 2.5rem;
+    }
+
+    .divider {
+      border: 0;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--divider), transparent);
+      margin: clamp(1.5rem, 5vw, 2.5rem) 0;
+    }
+
+    .frase {
+      font-size: clamp(1.1rem, 4vw, 1.3rem);
+      text-align: center;
+      font-style: italic;
+      margin-bottom: clamp(2rem, 6vw, 3rem);
+      line-height: 1.9;
+      letter-spacing: 0.3px;
+    }
+
+    .quest {
+      background-color: rgba(179, 139, 109, 0.07);
+      border-left: 2px solid var(--accent);
+      padding: 1.3rem;
+      margin: clamp(1.5rem, 5vw, 2.5rem) 0;
+      font-size: clamp(1rem, 4vw, 1.05rem);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .quest:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+      pointer-events: none;
+      background: linear-gradient(transparent 90%, var(--ink-effect));
+    }
+
+    .quest strong {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 400;
+      letter-spacing: 2px;
+      display: block;
+      margin-bottom: 0.8rem;
+      color: var(--accent);
+      font-size: 0.8rem;
+    }
+
+    .nota {
+      font-size: 0.8rem;
+      text-align: right;
+      padding-top: 1rem;
+      border-top: 1px dashed var(--divider);
+      margin-top: 2.5rem;
+    }
+
+    .playlist-block {
+      margin-top: 3.5rem;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 300;
+      font-size: 0.8rem;
+    }
+
+    .playlist-block em {
+      font-style: normal;
+      font-weight: 400;
+      display: block;
+      margin-bottom: 0.5rem;
+      color: var(--accent);
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px dotted var(--accent);
+      transition: all 0.3s ease;
+      display: inline-block;
+    }
+
+    a:hover {
+      color: var(--hover);
+      border-bottom: 1px solid var(--hover);
+    }
+
+    .scorpio-symbol {
+      text-align: center;
+      margin: 1.8rem 0;
+      opacity: 0.5;
+      font-size: 0.7rem;
+      cursor: help;
+    }
+
+    .diario-box {
+      background-color: rgba(10, 10, 10, 0.7);
+      border: 1px dashed var(--divider);
+      padding: 1.2rem;
+      margin: 2.5rem 0 1.5rem;
+      position: relative;
+      transition: all 0.4s ease;
+    }
+
+    .diario-box:hover {
+      box-shadow: 0 0 0 1px var(--ink-effect);
+    }
+
+    .diario-box:before {
+      content: "";
+      position: absolute;
+      top: 5px;
+      left: 10px;
+      right: 10px;
+      height: 1px;
+      background: var(--divider);
+      opacity: 0.3;
+    }
+
+    .diario-box textarea {
+      width: 100%;
+      background: transparent;
+      color: var(--text);
+      border: none;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      resize: none;
+      line-height: 1.7;
+      height: 180px;
+      outline: none;
+      padding: 0.5rem;
+      letter-spacing: 0.2px;
+    }
+
+    .diario-box textarea::placeholder {
+      color: rgba(234, 224, 213, 0.4);
+      font-style: italic;
+    }
+
+    .diario-box p {
+      font-size: 0.75rem;
+      color: rgba(234, 224, 213, 0.4);
+      font-family: 'Montserrat', sans-serif;
+      margin-top: 0.8rem;
+      text-align: center;
+      letter-spacing: 0.5px;
+    }
+
+    /* Effetto inchiostro evanescente */
+    @keyframes fadeInk {
+      0% { opacity: 0; transform: translateY(5px); }
+      20% { opacity: 0.7; }
+      100% { opacity: 0; transform: translateY(-10px); }
+    }
+
+    .ink-spot {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      background: radial-gradient(circle, var(--ink-effect) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+      animation: fadeInk 3s ease-out forwards;
+      z-index: 10;
+    }
+
+    /* Toggle segreto */
+    .secret-toggle {
+      text-align: center;
+      margin: 1rem 0;
+      font-size: 0.7rem;
+      color: rgba(179, 139, 109, 0.5);
+      cursor: pointer;
+      user-select: none;
+      transition: all 0.3s ease;
+    }
+
+    .secret-toggle:hover {
+      color: var(--accent);
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <article class="block">
+      <header>
+        <h1>Il Diario Inaudito</h1>
+        <p class="giorno">Giorno terzo</p>
+      </header>
+
+      <hr class="divider"/>
+
+      <p class="frase">
+        Scrivi un pensiero che nessuno leggerà.<br>
+        Non salvarlo. Ma <span class="ink-word">scrivilo</span>.
+      </p>
+
+      <div class="quest">
+        <strong>GESTO DI SCRITTURA</strong>
+        Lascia scorrere una frase.<br>
+        Un dubbio, una domanda, una preghiera interrotta.
+      </div>
+
+      <div class="diario-box" id="diario">
+        <textarea placeholder="Scrivi qui. Non verrà salvato. Nessuno lo leggerà."></textarea>
+        <p>Questo spazio è solo tuo. Nessun server lo conoscerà.</p>
+      </div>
+
+      <div class="scorpio-symbol" aria-hidden="true" title="Le parole bruciano più del veleno">📓</div>
+
+      <div class="secret-toggle" id="secretToggle">[mostra/nascondi]</div>
+
+      <footer>
+        <p class="nota">
+          «Ogni archivio è un gesto politico.<br>
+          Anche se si autodistrugge.» — Derrida
+        </p>
+
+        <div class="playlist-block">
+          <em>Colonna sonora suggerita</em>
+          <a href="#" target="_blank">🎧 [in arrivo]</a>
+        </div>
+      </footer>
+    </article>
+  </main>
+
+  <script>
+    // Effetto inchiostro dinamico
+    const diarioBox = document.getElementById('diario');
+    const textarea = diarioBox.querySelector('textarea');
+    
+    textarea.addEventListener('click', (e) => {
+      const inkSpot = document.createElement('div');
+      inkSpot.className = 'ink-spot';
+      inkSpot.style.left = `${e.offsetX - 20}px`;
+      inkSpot.style.top = `${e.offsetY - 20}px`;
+      diarioBox.appendChild(inkSpot);
+      
+      setTimeout(() => {
+        inkSpot.remove();
+      }, 3000);
+    });
+
+    // Easter egg Scorpione
+    const secretToggle = document.getElementById('secretToggle');
+    let clicked = false;
+    
+    secretToggle.addEventListener('click', () => {
+      if(!clicked) {
+        alert("Lo Scorpione custodisce segreti... ma talvolta li brucia.");
+        secretToggle.textContent = "[segreti al sicuro]";
+        clicked = true;
+        setTimeout(() => {
+          secretToggle.textContent = "[mostra/nascondi]";
+          clicked = false;
+        }, 2000);
+      }
+    });
+
+    // Auto-distruzione simbolica (senza perdere davvero i dati)
+    textarea.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' && e.ctrlKey) {
+        if(confirm("Vuoi davvero bruciare queste parole?\n(Simbolicamente, ovviamente...)")) {
+          textarea.value = '';
+          const flames = document.createElement('div');
+          flames.style.position = 'absolute';
+          flames.style.background = 'radial-gradient(circle, rgba(179,139,109,0.3) 0%, transparent 70%)';
+          flames.style.width = '100%';
+          flames.style.height = '100%';
+          flames.style.top = '0';
+          flames.style.left = '0';
+          flames.style.pointerEvents = 'none';
+          flames.style.animation = 'fadeInk 1.5s ease-out forwards';
+          diarioBox.appendChild(flames);
+          
+          setTimeout(() => {
+            flames.remove();
+          }, 1500);
+        }
+      }
+    });
+  </script>
+</body>
+</html>
