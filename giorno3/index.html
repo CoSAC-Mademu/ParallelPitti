@@ -20,64 +20,65 @@
       background-color: var(--dark-bg);
       color: var(--text);
       font-family: 'Cormorant Garamond', serif;
-      line-height: 1.6;
+      line-height: 1.8; /* Aumentato */
       padding: 0;
       margin: 0;
       min-height: 100vh;
       background-image: radial-gradient(circle at 50% 50%, rgba(179, 139, 109, 0.03) 0%, transparent 100%);
+      font-size: 18px; /* Dimensione base più grande */
     }
 
     .container {
-      width: 88%;
+      width: 90%; /* Più largo su mobile */
       max-width: 600px;
       margin: 0 auto;
-      padding: 2rem 1rem;
+      padding: 3rem 1.5rem; /* Più spazio interno */
       box-sizing: border-box;
     }
 
     h1 {
       font-weight: 600;
-      font-size: clamp(2rem, 6vw, 2.5rem);
+      font-size: clamp(2.4rem, 8vw, 3rem); /* Più grande */
       letter-spacing: 0.5px;
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem; /* Più spazio */
       text-align: center;
       color: var(--accent);
-      text-shadow: 0 0 8px rgba(179, 139, 109, 0.1);
+      text-shadow: 0 0 10px rgba(179, 139, 109, 0.1);
+      line-height: 1.3;
     }
 
     .giorno {
       text-align: center;
       font-family: 'Montserrat', sans-serif;
       font-weight: 300;
-      font-size: 0.8rem;
+      font-size: 1rem; /* Più grande */
       letter-spacing: 3px;
       text-transform: uppercase;
       color: var(--accent);
-      margin-bottom: 2.5rem;
+      margin-bottom: 3rem; /* Più spazio */
     }
 
     .divider {
       border: 0;
       height: 1px;
       background: linear-gradient(to right, transparent, var(--divider), transparent);
-      margin: clamp(1.5rem, 5vw, 2.5rem) 0;
+      margin: clamp(2rem, 6vw, 3rem) 0; /* Più spazio */
     }
 
     .frase {
-      font-size: clamp(1.1rem, 4vw, 1.3rem);
+      font-size: clamp(1.4rem, 5vw, 1.8rem); /* Molto più grande */
       text-align: center;
       font-style: italic;
-      margin-bottom: clamp(2rem, 6vw, 3rem);
-      line-height: 1.9;
-      letter-spacing: 0.3px;
+      margin-bottom: clamp(2.5rem, 7vw, 4rem); /* Più spazio */
+      line-height: 1.6;
     }
 
     .quest {
       background-color: rgba(179, 139, 109, 0.07);
-      border-left: 2px solid var(--accent);
-      padding: 1.3rem;
-      margin: clamp(1.5rem, 5vw, 2.5rem) 0;
-      font-size: clamp(1rem, 4vw, 1.05rem);
+      border-left: 3px solid var(--accent); /* Bordo più spesso */
+      padding: 1.8rem; /* Più spazio interno */
+      margin: clamp(2rem, 6vw, 3rem) 0; /* Più spazio */
+      font-size: clamp(1.2rem, 5vw, 1.4rem); /* Più grande */
       position: relative;
       overflow: hidden;
     }
@@ -98,32 +99,34 @@
       font-weight: 400;
       letter-spacing: 2px;
       display: block;
-      margin-bottom: 0.8rem;
+      margin-bottom: 1rem; /* Più spazio */
       color: var(--accent);
-      font-size: 0.8rem;
+      font-size: 1rem; /* Più grande */
     }
 
     .nota {
-      font-size: 0.8rem;
+      font-size: 1rem; /* Più grande */
       text-align: right;
-      padding-top: 1rem;
+      padding-top: 1.5rem; /* Più spazio */
       border-top: 1px dashed var(--divider);
-      margin-top: 2.5rem;
+      margin-top: 3rem; /* Più spazio */
+      line-height: 1.6;
     }
 
     .playlist-block {
-      margin-top: 3.5rem;
+      margin-top: 4rem; /* Più spazio */
       font-family: 'Montserrat', sans-serif;
       font-weight: 300;
-      font-size: 0.8rem;
+      font-size: 1rem; /* Più grande */
     }
 
     .playlist-block em {
       font-style: normal;
       font-weight: 400;
       display: block;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.8rem; /* Più spazio */
       color: var(--accent);
+      font-size: 1.1rem; /* Più grande */
     }
 
     a {
@@ -132,6 +135,8 @@
       border-bottom: 1px dotted var(--accent);
       transition: all 0.3s ease;
       display: inline-block;
+      font-size: 1.1rem; /* Più grande */
+      padding-bottom: 0.1rem;
     }
 
     a:hover {
@@ -141,17 +146,17 @@
 
     .scorpio-symbol {
       text-align: center;
-      margin: 1.8rem 0;
+      margin: 2.5rem 0; /* Più spazio */
       opacity: 0.5;
-      font-size: 0.7rem;
+      font-size: 1rem; /* Più grande */
       cursor: help;
     }
 
     .diario-box {
       background-color: rgba(10, 10, 10, 0.7);
       border: 1px dashed var(--divider);
-      padding: 1.2rem;
-      margin: 2.5rem 0 1.5rem;
+      padding: 1.8rem; /* Più spazio interno */
+      margin: 3rem 0 2rem; /* Più spazio */
       position: relative;
       transition: all 0.4s ease;
     }
@@ -163,9 +168,9 @@
     .diario-box:before {
       content: "";
       position: absolute;
-      top: 5px;
-      left: 10px;
-      right: 10px;
+      top: 10px; /* Regolato */
+      left: 15px;
+      right: 15px;
       height: 1px;
       background: var(--divider);
       opacity: 0.3;
@@ -177,25 +182,26 @@
       color: var(--text);
       border: none;
       font-family: 'Cormorant Garamond', serif;
-      font-size: 1.05rem;
+      font-size: 1.2rem; /* Più grande */
       resize: none;
-      line-height: 1.7;
-      height: 180px;
+      line-height: 1.8; /* Aumentato */
+      height: 200px; /* Più spazio */
       outline: none;
-      padding: 0.5rem;
-      letter-spacing: 0.2px;
+      padding: 0.8rem; /* Più spazio */
+      letter-spacing: 0.3px;
     }
 
     .diario-box textarea::placeholder {
       color: rgba(234, 224, 213, 0.4);
       font-style: italic;
+      font-size: 1.1rem; /* Più grande */
     }
 
     .diario-box p {
-      font-size: 0.75rem;
+      font-size: 0.9rem; /* Più grande */
       color: rgba(234, 224, 213, 0.4);
       font-family: 'Montserrat', sans-serif;
-      margin-top: 0.8rem;
+      margin-top: 1rem; /* Più spazio */
       text-align: center;
       letter-spacing: 0.5px;
     }
@@ -209,8 +215,8 @@
 
     .ink-spot {
       position: absolute;
-      width: 40px;
-      height: 40px;
+      width: 50px; /* Più grande */
+      height: 50px; /* Più grande */
       background: radial-gradient(circle, var(--ink-effect) 0%, transparent 70%);
       border-radius: 50%;
       pointer-events: none;
@@ -221,8 +227,8 @@
     /* Toggle segreto */
     .secret-toggle {
       text-align: center;
-      margin: 1rem 0;
-      font-size: 0.7rem;
+      margin: 1.5rem 0; /* Più spazio */
+      font-size: 0.9rem; /* Più grande */
       color: rgba(179, 139, 109, 0.5);
       cursor: pointer;
       user-select: none;
@@ -231,6 +237,29 @@
 
     .secret-toggle:hover {
       color: var(--accent);
+    }
+
+    /* Ottimizzazioni mobile specifiche */
+    @media (max-width: 600px) {
+      body {
+        font-size: 20px; /* Ancora più grande su mobile */
+      }
+      
+      .container {
+        padding: 3.5rem 1.8rem; /* Più spazio interno */
+      }
+      
+      .diario-box {
+        padding: 1.5rem; /* Regolato */
+      }
+      
+      .nota {
+        text-align: center; /* Centrato su mobile */
+      }
+      
+      .ink-word {
+        font-size: 1.2em; /* Più grande su mobile */
+      }
     }
   </style>
 </head>
@@ -260,6 +289,7 @@
         <p>Questo spazio è solo tuo. Nessun server lo conoscerà.</p>
       </div>
 
+  
      
       <div class="secret-toggle" id="secretToggle">[mostra/nascondi]</div>
 
@@ -285,8 +315,8 @@
     textarea.addEventListener('click', (e) => {
       const inkSpot = document.createElement('div');
       inkSpot.className = 'ink-spot';
-      inkSpot.style.left = `${e.offsetX - 20}px`;
-      inkSpot.style.top = `${e.offsetY - 20}px`;
+      inkSpot.style.left = `${e.offsetX - 25}px`;
+      inkSpot.style.top = `${e.offsetY - 25}px`;
       diarioBox.appendChild(inkSpot);
       
       setTimeout(() => {
@@ -294,7 +324,7 @@
       }, 3000);
     });
 
-    
+  
 
     // Auto-distruzione simbolica (senza perdere davvero i dati)
     textarea.addEventListener('keydown', (e) => {
