@@ -23,39 +23,41 @@
       background-color: var(--dark-bg);
       color: var(--text);
       font-family: 'Cormorant Garamond', serif;
-      line-height: 1.7;
+      line-height: 1.8; /* Aumentato */
       margin: 0;
       padding: 0;
       min-height: 100vh;
       background-image: 
         radial-gradient(circle at 20% 30%, rgba(179, 139, 109, 0.03) 0%, transparent 25%),
         radial-gradient(circle at 80% 70%, rgba(179, 139, 109, 0.03) 0%, transparent 25%);
+      font-size: 18px; /* Dimensione base più grande */
     }
 
     main {
-      width: 88%;
+      width: 90%; /* Più largo su mobile */
       max-width: 600px;
       margin: 0 auto;
-      padding: 2.5rem 1rem;
+      padding: 3rem 1.5rem; /* Più spazio interno */
       box-sizing: border-box;
     }
 
     h1 {
       color: var(--accent);
-      margin: 0 0 0.3rem;
-      font-size: clamp(2rem, 6vw, 2.5rem);
+      margin: 0 0 0.5rem; /* Più spazio */
+      font-size: clamp(2.4rem, 8vw, 3rem); /* Più grande */
       font-weight: 600;
       letter-spacing: 0.5px;
       text-shadow: 0 0 10px rgba(179, 139, 109, 0.1);
+      line-height: 1.3;
     }
 
     .giorno {
       font-family: 'Montserrat', sans-serif;
-      font-size: 0.75rem;
+      font-size: 1rem; /* Più grande */
       letter-spacing: 3px;
       color: var(--accent);
       text-transform: uppercase;
-      margin-bottom: 2.5rem;
+      margin-bottom: 3rem; /* Più spazio */
       text-align: center;
       position: relative;
     }
@@ -63,18 +65,18 @@
     .giorno:after {
       content: "";
       display: block;
-      width: 40%;
+      width: 50%; /* Più largo */
       height: 1px;
       background: var(--divider);
-      margin: 1.2rem auto 0;
+      margin: 1.5rem auto 0; /* Più spazio */
     }
 
     .suggestion {
-      margin: 1.8rem 0;
+      margin: 2rem 0; /* Più spazio */
       background: rgba(179, 139, 109, 0.07);
-      border-left: 2px solid var(--accent);
-      padding: 1.3rem;
-      font-size: clamp(1rem, 4vw, 1.1rem);
+      border-left: 3px solid var(--accent); /* Bordo più spesso */
+      padding: 1.8rem 1.5rem 1.8rem 2rem; /* Più spazio interno */
+      font-size: clamp(1.2rem, 5vw, 1.4rem); /* Più grande */
       line-height: 1.8;
       position: relative;
       text-align: left;
@@ -89,20 +91,21 @@
     .suggestion:before {
       content: "»";
       position: absolute;
-      left: 0.5rem;
+      left: 0.8rem; /* Regolato */
       color: var(--accent);
       opacity: 0.6;
+      font-size: 1.2em; /* Più grande */
     }
 
     button {
-      margin-top: 3rem;
-      padding: 0.8rem 2rem;
+      margin-top: 3.5rem; /* Più spazio */
+      padding: 1rem 2.5rem; /* Più grande */
       background: transparent;
       border: 1px solid var(--accent);
       color: var(--accent);
       font-family: 'Montserrat', sans-serif;
       font-weight: 400;
-      font-size: 0.75rem;
+      font-size: 0.9rem; /* Più grande */
       letter-spacing: 2px;
       text-transform: uppercase;
       cursor: pointer;
@@ -122,6 +125,7 @@
       right: -15px;
       opacity: 0;
       transition: all 0.3s ease;
+      font-size: 1.1em; /* Più grande */
     }
 
     button:hover:after {
@@ -130,21 +134,22 @@
     }
 
     .nota {
-      font-size: 0.75rem;
-      margin-top: 4rem;
+      font-size: 1rem; /* Più grande */
+      margin-top: 4.5rem; /* Più spazio */
       color: rgba(234, 224, 213, 0.4);
       font-family: 'Montserrat', sans-serif;
       letter-spacing: 0.5px;
       position: relative;
+      line-height: 1.6;
     }
 
     .nota:before {
       content: "";
       display: block;
-      width: 30%;
+      width: 40%; /* Più largo */
       height: 1px;
       background: var(--divider);
-      margin: 0 auto 1.2rem;
+      margin: 0 auto 1.5rem; /* Più spazio */
     }
 
     /* Animazioni */
@@ -160,20 +165,36 @@
     /* Effetto selezione suggerimento */
     .selected {
       background: rgba(179, 139, 109, 0.15) !important;
-      border-left: 2px solid var(--hover);
+      border-left: 3px solid var(--hover); /* Bordo più spesso */
     }
 
     .selected:before {
       opacity: 1;
     }
 
-    /* Scorpio touch mobile */
+    /* Ottimizzazioni mobile specifiche */
     @media (max-width: 600px) {
-      .suggestion {
-        padding: 1.1rem 1rem 1.1rem 1.5rem;
+      body {
+        font-size: 20px; /* Ancora più grande su mobile */
       }
+      
+      main {
+        padding: 3.5rem 1.8rem; /* Più spazio interno */
+      }
+      
+      .suggestion {
+        padding: 1.5rem 1.2rem 1.5rem 1.8rem; /* Regolato */
+        font-size: 1.3rem; /* Più grande */
+      }
+      
       button {
         width: 100%;
+        padding: 1.2rem; /* Più spazio interno */
+        font-size: 1rem; /* Più grande */
+      }
+      
+      .nota {
+        text-align: center; /* Centrato su mobile */
       }
     }
   </style>
@@ -226,8 +247,6 @@
         el.classList.add('selected');
       });
     });
-
-   
 
     // Inizializzazione
     generate();
