@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Il Diario Inaudito • Giorno 3</title>
+  <title>Il Diario Afono • Giorno 3</title>
   <link rel="stylesheet" href="../style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
   <style>
@@ -238,7 +238,7 @@
   <main class="container">
     <article class="block">
       <header>
-        <h1>Il Diario Inaudito</h1>
+        <h1>Il Diario Afono</h1>
         <p class="giorno">Giorno terzo</p>
       </header>
 
@@ -246,7 +246,7 @@
 
       <p class="frase">
         Scrivi un pensiero che nessuno leggerà.<br>
-        Non salvarlo. Ma <span class="ink-word">scrivilo</span>.
+        Non verrà salvato. Ma forse basta solo <span class="ink-word">scriverlo</span>.
       </p>
 
       <div class="quest">
@@ -256,12 +256,11 @@
       </div>
 
       <div class="diario-box" id="diario">
-        <textarea placeholder="Scrivi qui. Non verrà salvato. Nessuno lo leggerà."></textarea>
+        <textarea placeholder="Scrivi qui se ti va"></textarea>
         <p>Questo spazio è solo tuo. Nessun server lo conoscerà.</p>
       </div>
 
-      <div class="scorpio-symbol" aria-hidden="true" title="Le parole bruciano più del veleno">📓</div>
-
+     
       <div class="secret-toggle" id="secretToggle">[mostra/nascondi]</div>
 
       <footer>
@@ -295,21 +294,7 @@
       }, 3000);
     });
 
-    // Easter egg Scorpione
-    const secretToggle = document.getElementById('secretToggle');
-    let clicked = false;
     
-    secretToggle.addEventListener('click', () => {
-      if(!clicked) {
-        alert("Lo Scorpione custodisce segreti... ma talvolta li brucia.");
-        secretToggle.textContent = "[segreti al sicuro]";
-        clicked = true;
-        setTimeout(() => {
-          secretToggle.textContent = "[mostra/nascondi]";
-          clicked = false;
-        }, 2000);
-      }
-    });
 
     // Auto-distruzione simbolica (senza perdere davvero i dati)
     textarea.addEventListener('keydown', (e) => {
