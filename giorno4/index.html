@@ -13,6 +13,7 @@
       --hover: #D9B99B;
       --divider: rgba(179, 139, 109, 0.3);
       --selection: rgba(179, 139, 109, 0.2);
+      --ink-effect: rgba(179, 139, 109, 0.15);
     }
 
     ::selection {
@@ -23,41 +24,42 @@
       background-color: var(--dark-bg);
       color: var(--text);
       font-family: 'Cormorant Garamond', serif;
-      line-height: 1.8; /* Aumentato */
+      line-height: 1.8;
       margin: 0;
       padding: 0;
       min-height: 100vh;
+      font-size: 18px;
       background-image: 
         radial-gradient(circle at 20% 30%, rgba(179, 139, 109, 0.03) 0%, transparent 25%),
         radial-gradient(circle at 80% 70%, rgba(179, 139, 109, 0.03) 0%, transparent 25%);
-      font-size: 18px; /* Dimensione base più grande */
     }
 
     main {
-      width: 90%; /* Più largo su mobile */
+      width: 90%;
       max-width: 600px;
       margin: 0 auto;
-      padding: 3rem 1.5rem; /* Più spazio interno */
+      padding: 3rem 1.5rem;
       box-sizing: border-box;
     }
 
     h1 {
       color: var(--accent);
-      margin: 0 0 0.5rem; /* Più spazio */
-      font-size: clamp(2.4rem, 8vw, 3rem); /* Più grande */
+      margin: 0 0 0.5rem;
+      font-size: clamp(2.4rem, 8vw, 3rem);
       font-weight: 600;
       letter-spacing: 0.5px;
       text-shadow: 0 0 10px rgba(179, 139, 109, 0.1);
       line-height: 1.3;
+      text-align: center;
     }
 
     .giorno {
       font-family: 'Montserrat', sans-serif;
-      font-size: 1rem; /* Più grande */
+      font-size: 1rem;
       letter-spacing: 3px;
       color: var(--accent);
       text-transform: uppercase;
-      margin-bottom: 3rem; /* Più spazio */
+      margin-bottom: 3rem;
       text-align: center;
       position: relative;
     }
@@ -65,18 +67,18 @@
     .giorno:after {
       content: "";
       display: block;
-      width: 50%; /* Più largo */
+      width: 50%;
       height: 1px;
       background: var(--divider);
-      margin: 1.5rem auto 0; /* Più spazio */
+      margin: 1.5rem auto 0;
     }
 
     .suggestion {
-      margin: 2rem 0; /* Più spazio */
+      margin: 2rem 0;
       background: rgba(179, 139, 109, 0.07);
-      border-left: 3px solid var(--accent); /* Bordo più spesso */
-      padding: 1.8rem 1.5rem 1.8rem 2rem; /* Più spazio interno */
-      font-size: clamp(1.2rem, 5vw, 1.4rem); /* Più grande */
+      border-left: 3px solid var(--accent);
+      padding: 1.8rem 1.5rem 1.8rem 2rem;
+      font-size: clamp(1.2rem, 5vw, 1.4rem);
       line-height: 1.8;
       position: relative;
       text-align: left;
@@ -91,27 +93,30 @@
     .suggestion:before {
       content: "»";
       position: absolute;
-      left: 0.8rem; /* Regolato */
+      left: 0.8rem;
       color: var(--accent);
       opacity: 0.6;
-      font-size: 1.2em; /* Più grande */
+      font-size: 1.2em;
     }
 
     button {
-      margin-top: 3.5rem; /* Più spazio */
-      padding: 1rem 2.5rem; /* Più grande */
+      margin-top: 3.5rem;
+      padding: 1rem 2.5rem;
       background: transparent;
       border: 1px solid var(--accent);
       color: var(--accent);
       font-family: 'Montserrat', sans-serif;
       font-weight: 400;
-      font-size: 0.9rem; /* Più grande */
+      font-size: 0.9rem;
       letter-spacing: 2px;
       text-transform: uppercase;
       cursor: pointer;
       transition: all 0.4s ease;
       position: relative;
       overflow: hidden;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     button:hover {
@@ -119,40 +124,78 @@
       letter-spacing: 3px;
     }
 
-    button:after {
-      content: " ";
-      position: absolute;
-      right: -15px;
-      opacity: 0;
-      transition: all 0.3s ease;
-      font-size: 1.1em; /* Più grande */
+    /* Nuovo stile per i blocchi playlist/curiosità */
+    .playlist-block {
+      background-color: rgba(10, 10, 10, 0.7);
+      border: 1px dashed var(--divider);
+      padding: 1.8rem;
+      margin: 3rem 0;
+      position: relative;
+      transition: all 0.4s ease;
     }
 
-    button:hover:after {
+    .playlist-block:hover {
+      box-shadow: 0 0 0 1px var(--ink-effect);
+    }
+
+    .playlist-block:before {
+      content: "";
+      position: absolute;
+      top: 10px;
+      left: 15px;
       right: 15px;
-      opacity: 0.5;
+      height: 1px;
+      background: var(--divider);
+      opacity: 0.3;
+    }
+
+    .playlist-block em {
+      font-style: normal;
+      font-weight: 400;
+      display: block;
+      margin-bottom: 1rem;
+      color: var(--accent);
+      font-size: 1.1rem;
+      text-align: center;
+    }
+
+    .playlist-block a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px dotted var(--accent);
+      transition: all 0.3s ease;
+      display: block;
+      text-align: center;
+      font-size: 1.1rem;
+      padding-bottom: 0.1rem;
+      margin-top: 0.5rem;
+    }
+
+    .playlist-block a:hover {
+      color: var(--hover);
+      border-bottom: 1px solid var(--hover);
     }
 
     .nota {
-      font-size: 1rem; /* Più grande */
-      margin-top: 4.5rem; /* Più spazio */
+      font-size: 1rem;
+      margin-top: 4.5rem;
       color: rgba(234, 224, 213, 0.4);
       font-family: 'Montserrat', sans-serif;
       letter-spacing: 0.5px;
       position: relative;
       line-height: 1.6;
+      text-align: center;
     }
 
     .nota:before {
       content: "";
       display: block;
-      width: 40%; /* Più largo */
+      width: 40%;
       height: 1px;
       background: var(--divider);
-      margin: 0 auto 1.5rem; /* Più spazio */
+      margin: 0 auto 1.5rem;
     }
 
-    /* Animazioni */
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(10px); }
       to { opacity: 1; transform: translateY(0); }
@@ -162,39 +205,37 @@
       animation: fadeIn 0.6s ease-out forwards;
     }
 
-    /* Effetto selezione suggerimento */
     .selected {
       background: rgba(179, 139, 109, 0.15) !important;
-      border-left: 3px solid var(--hover); /* Bordo più spesso */
+      border-left: 3px solid var(--hover);
     }
 
     .selected:before {
       opacity: 1;
     }
 
-    /* Ottimizzazioni mobile specifiche */
     @media (max-width: 600px) {
       body {
-        font-size: 20px; /* Ancora più grande su mobile */
+        font-size: 20px;
       }
-      
+
       main {
-        padding: 3.5rem 1.8rem; /* Più spazio interno */
+        padding: 3.5rem 1.8rem;
       }
-      
+
       .suggestion {
-        padding: 1.5rem 1.2rem 1.5rem 1.8rem; /* Regolato */
-        font-size: 1.3rem; /* Più grande */
+        padding: 1.5rem 1.2rem 1.5rem 1.8rem;
+        font-size: 1.3rem;
       }
-      
+
       button {
         width: 100%;
-        padding: 1.2rem; /* Più spazio interno */
-        font-size: 1rem; /* Più grande */
+        padding: 1.2rem;
+        font-size: 1rem;
       }
-      
-      .nota {
-        text-align: center; /* Centrato su mobile */
+
+      .playlist-block {
+        padding: 1.5rem;
       }
     }
   </style>
@@ -212,12 +253,12 @@
 
     <div class="playlist-block">
       <em>Colonna sonora suggerita</em>
-      <a href="https://open.spotify.com/playlist/1T9OWeK5lyPzft8tdunBgX?si=uoA-EUVfT-mImQg8vi1zIA&pi=qLCuaXiFTnCUX" target="_blank">🎧 PP4</a>
+      <a href="https://open.spotify.com/playlist/1T9OWeK5lyPzft8tdunBgX?si=uoA-EUVfT-mImQg8vi1zIA&pi=qLCuaXiFTnCUX" target="_blank" rel="noopener noreferrer">🎧 PP4</a>
     </div>
 
     <div class="playlist-block">
-      <em>Curiosità del giorno (valuta di vederla in privato)</em>
-      <a href="https://drive.google.com/file/d/1PQs6Rz9IjUK5qlyRrJSkWj-2o9UyVD6H/view?usp=drive_link" target="_blank">Utopia - Rubén Fabbri</a>
+      <em>Curiosità del giorno</em>
+      <a href="https://drive.google.com/file/d/1PQs6Rz9IjUK5qlyRrJSkWj-2o9UyVD6H/view?usp=drive_link" target="_blank" rel="noopener noreferrer">Utopia - Rubén Fabbri</a>
     </div>
 
     <div class="nota">«Solo chi si perde può trovare qualcosa di nuovo. Nah non è vero, ti cascano comunque in testa le situazioni, basta slogan facilotti»</div>
@@ -240,17 +281,16 @@
     function generate() {
       const shuffled = [...idee].sort(() => 0.5 - Math.random());
       const suggestions = document.querySelectorAll('.suggestion');
-      
+
       suggestions.forEach((el, index) => {
         el.classList.remove('fade-in');
-        void el.offsetWidth; // Trigger reflow
+        void el.offsetWidth;
         el.classList.add('fade-in');
         el.innerText = shuffled[index];
         el.classList.remove('selected');
       });
     }
 
-    // Selezione suggerimento
     document.querySelectorAll('.suggestion').forEach(el => {
       el.addEventListener('click', () => {
         document.querySelectorAll('.suggestion').forEach(s => s.classList.remove('selected'));
@@ -258,7 +298,6 @@
       });
     });
 
-    // Inizializzazione
     generate();
   </script>
 </body>
