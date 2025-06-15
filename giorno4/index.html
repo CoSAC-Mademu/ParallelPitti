@@ -13,7 +13,6 @@
       --hover: #D9B99B;
       --divider: rgba(179, 139, 109, 0.3);
       --selection: rgba(179, 139, 109, 0.2);
-      --ink-effect: rgba(179, 139, 109, 0.15);
     }
 
     ::selection {
@@ -124,54 +123,35 @@
       letter-spacing: 3px;
     }
 
-    /* Nuovo stile per i blocchi playlist/curiosità */
+    /* Stile semplificato per playlist-block */
     .playlist-block {
-      background-color: rgba(10, 10, 10, 0.7);
-      border: 1px dashed var(--divider);
-      padding: 1.8rem;
-      margin: 3rem 0;
-      position: relative;
-      transition: all 0.4s ease;
-    }
-
-    .playlist-block:hover {
-      box-shadow: 0 0 0 1px var(--ink-effect);
-    }
-
-    .playlist-block:before {
-      content: "";
-      position: absolute;
-      top: 10px;
-      left: 15px;
-      right: 15px;
-      height: 1px;
-      background: var(--divider);
-      opacity: 0.3;
+      margin-top: 3.5rem;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 300;
+      font-size: 1rem;
+      text-align: center;
     }
 
     .playlist-block em {
       font-style: normal;
       font-weight: 400;
       display: block;
-      margin-bottom: 1rem;
+      margin-bottom: 0.8rem;
       color: var(--accent);
       font-size: 1.1rem;
-      text-align: center;
     }
 
-    .playlist-block a {
+    a {
       color: var(--accent);
       text-decoration: none;
       border-bottom: 1px dotted var(--accent);
       transition: all 0.3s ease;
-      display: block;
-      text-align: center;
+      display: inline-block;
       font-size: 1.1rem;
       padding-bottom: 0.1rem;
-      margin-top: 0.5rem;
     }
 
-    .playlist-block a:hover {
+    a:hover {
       color: var(--hover);
       border-bottom: 1px solid var(--hover);
     }
@@ -232,10 +212,6 @@
         width: 100%;
         padding: 1.2rem;
         font-size: 1rem;
-      }
-
-      .playlist-block {
-        padding: 1.5rem;
       }
     }
   </style>
